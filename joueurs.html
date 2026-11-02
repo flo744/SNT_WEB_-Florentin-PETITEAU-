@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+ <html lang="fr">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Joueurs - FC Nantes</title>
+ <style>
+ body{font-family:Arial,sans-serif;background:#eeeeee;margin:0}
+header{background:#00852b;color:white;text-align:center;padding:20px}
+header h1{margin:0 0 15px}
+nav a{color:white;text-decoration:none;margin:0 12px;font-weight:bold}
+nav a:hover{color:#fff200}
+main{padding:25px}
+.bloc{background:white;max-width:1200px;margin:25px auto;padding:25px;border-radius:15px;box-shadow:0 3px 10px rgba(0,0,0,.15)}
+.bloc>h2{color:#00852b;text-align:center}
+.note{text-align:center;color:#555;margin-bottom:25px}
+.saison{margin-top:40px}
+.saison h2{background:#00852b;color:white;padding:14px;border-radius:10px;text-align:center}
+.compte{text-align:center;color:#555;font-weight:bold}
+.tableScroll{overflow-x:auto}
+.tableau{width:100%;border-collapse:collapse;margin-top:15px}
+.tableau th{background:#fff200;padding:12px}
+.tableau td{padding:9px;border-bottom:1px solid #ddd;text-align:center}
+.tableau tr:hover{background:#f5fff5}
+.nomJoueur{color:#00852b;font-weight:bold;cursor:pointer}
+.nomJoueur:hover{color:#e0a900;text-decoration:underline}
+.rang{font-weight:bold}
+#fenetreStats{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.7);overflow-y:auto}
+.contenuStats{background:white;width:85%;max-width:850px;margin:50px auto;padding:25px;border-radius:15px;position:relative}
+.fermer{position:absolute;right:20px;top:10px;font-size:35px;font-weight:bold;cursor:pointer;color:#00852b}
+.enteteJoueur{text-align:center;border-bottom:3px solid #00852b;padding-bottom:20px}
+.photoStats{width:150px;height:150px;object-fit:cover;border-radius:50%;border:5px solid #00852b;background:#ddd}
+#nomStats{color:#00852b}
+#posteStats{color:#555;font-weight:bold}
+.ligneSaison{margin-top:20px;padding:15px;border:2px solid #00852b;border-radius:12px;background:#f5fff5}
+.statsGrille{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stat{background:white;padding:12px;border-radius:10px;text-align:center}
+.stat strong{display:block;font-size:25px;color:#00852b}
+.stat span{font-size:13px}
+footer{background:#00852b;color:white;text-align:center;padding:15px}
+@media(max-width:700px){.tableau{font-size:12px}.tableau th,.tableau td{padding:6px}.statsGrille{grid-template-columns:repeat(2,1fr)}nav a{display:inline-block;margin:5px}}
+</style>
+</head>
+<body>
+<header>
+<h1>🟡🟢 JOUEURS DU FC NANTES 🟢🟡</h1>
+<nav>
+<a href="index.html">Accueil</a>
+<a href="jeu.html">Jeu</a>
+<a href="boutique.html">Boutique</a>
+<a href="joueurs.html">Joueurs</a>
+</nav>
+</header>
+<main>
+<section class="bloc">
+<h2>🏆 Tous les joueurs du FC Nantes</h2>
+<p class="note">
+Classement des joueurs ayant joué au moins <strong>1 minute en Ligue 1</strong> pendant la saison concernée.<br>
+Les tableaux sont automatiquement classés du plus grand au plus petit nombre de matchs.<br>
+</p>
+
+    <div class="saison">
+        <h2>📅 Saison 2021-2022</h2>
+        <p class="compte">23 joueurs ayant joué au moins 1 minute</p>
+        <div class="tableScroll">
+        <table class="tableau">
+            <tr><th>Rang</th><th>Joueur</th><th>Matchs</th><th>Minutes</th><th>Buts</th><th>Passes</th></tr>
+            <tr><td class="rang">1</td><td class="nomJoueur" onclick="afficherStats("Alban Lafont")">Alban Lafont</td><td>38</td><td>3420</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">2</td><td class="nomJoueur" onclick="afficherStats("Andrei Girotto")">Andrei Girotto</td><td>36</td><td>3150</td><td>6</td><td>1</td></tr>
+<tr><td class="rang">3</td><td class="nomJoueur" onclick="afficherStats("Randal Kolo Muani")">Randal Kolo Muani</td><td>36</td><td>2958</td><td>12</td><td>5</td></tr>
+<tr><td class="rang">4</td><td class="nomJoueur" onclick="afficherStats("Ludovic Blas")">Ludovic Blas</td><td>35</td><td>2977</td><td>10</td><td>5</td></tr>
+<tr><td class="rang">5</td><td class="nomJoueur" onclick="afficherStats("Dennis Appiah")">Dennis Appiah</td><td>32</td><td>2093</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">6</td><td class="nomJoueur" onclick="afficherStats("Pedro Chirivella")">Pedro Chirivella</td><td>31</td><td>2646</td><td>3</td><td>1</td></tr>
+<tr><td class="rang">7</td><td class="nomJoueur" onclick="afficherStats("Nicolas Pallois")">Nicolas Pallois</td><td>30</td><td>2451</td><td>1</td><td>0</td></tr>
+<tr><td class="rang">8</td><td class="nomJoueur" onclick="afficherStats("Moses Simon")">Moses Simon</td><td>30</td><td>2351</td><td>6</td><td>8</td></tr>
+<tr><td class="rang">9</td><td class="nomJoueur" onclick="afficherStats("Samuel Moutoussamy")">Samuel Moutoussamy</td><td>30</td><td>1502</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">10</td><td class="nomJoueur" onclick="afficherStats("Jean-Charles Castelletto")">Jean-Charles Castelletto</td><td>28</td><td>2512</td><td>1</td><td>0</td></tr>
+<tr><td class="rang">11</td><td class="nomJoueur" onclick="afficherStats("Quentin Merlin")">Quentin Merlin</td><td>28</td><td>1924</td><td>2</td><td>3</td></tr>
+<tr><td class="rang">12</td><td class="nomJoueur" onclick="afficherStats("Sébastien Corchia")">Sébastien Corchia</td><td>28</td><td>1318</td><td>0</td><td>3</td></tr>
+<tr><td class="rang">13</td><td class="nomJoueur" onclick="afficherStats("Fábio")">Fábio</td><td>27</td><td>1678</td><td>0</td><td>2</td></tr>
+<tr><td class="rang">14</td><td class="nomJoueur" onclick="afficherStats("Wylan Cyprien")">Wylan Cyprien</td><td>24</td><td>1494</td><td>2</td><td>3</td></tr>
+<tr><td class="rang">15</td><td class="nomJoueur" onclick="afficherStats("Osman Bukari")">Osman Bukari</td><td>24</td><td>1009</td><td>2</td><td>4</td></tr>
+<tr><td class="rang">16</td><td class="nomJoueur" onclick="afficherStats("Marcus Coco")">Marcus Coco</td><td>24</td><td>927</td><td>1</td><td>1</td></tr>
+<tr><td class="rang">17</td><td class="nomJoueur" onclick="afficherStats("Willem Geubbels")">Willem Geubbels</td><td>22</td><td>531</td><td>2</td><td>1</td></tr>
+<tr><td class="rang">18</td><td class="nomJoueur" onclick="afficherStats("Kalifa Coulibaly")">Kalifa Coulibaly</td><td>21</td><td>848</td><td>5</td><td>0</td></tr>
+<tr><td class="rang">19</td><td class="nomJoueur" onclick="afficherStats("Roli Pereira de Sa")">Roli Pereira de Sa</td><td>17</td><td>570</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">20</td><td class="nomJoueur" onclick="afficherStats("Charles Traoré")">Charles Traoré</td><td>16</td><td>715</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">21</td><td class="nomJoueur" onclick="afficherStats("Jean-Kévin Augustin")">Jean-Kévin Augustin</td><td>7</td><td>77</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">22</td><td class="nomJoueur" onclick="afficherStats("Renaud Emond")">Renaud Emond</td><td>6</td><td>189</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">23</td><td class="nomJoueur" onclick="afficherStats("Abdoulaye Sylla")">Abdoulaye Sylla</td><td>2</td><td>158</td><td>0</td><td>0</td></tr>
+        </table>
+        </div>
+    </div>
+    <div class="saison">
+        <h2>📅 Saison 2022-2023</h2>
+        <p class="compte">29 joueurs ayant joué au moins 1 minute</p>
+        <div class="tableScroll">
+        <table class="tableau">
+            <tr><th>Rang</th><th>Joueur</th><th>Matchs</th><th>Minutes</th><th>Buts</th><th>Passes</th></tr>
+            <tr><td class="rang">1</td><td class="nomJoueur" onclick="afficherStats("Alban Lafont")">Alban Lafont</td><td>37</td><td>3330</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">2</td><td class="nomJoueur" onclick="afficherStats("Ludovic Blas")">Ludovic Blas</td><td>37</td><td>2818</td><td>7</td><td>5</td></tr>
+<tr><td class="rang">3</td><td class="nomJoueur" onclick="afficherStats("Andrei Girotto")">Andrei Girotto</td><td>36</td><td>3155</td><td>1</td><td>1</td></tr>
+<tr><td class="rang">4</td><td class="nomJoueur" onclick="afficherStats("Mostafa Mohamed")">Mostafa Mohamed</td><td>36</td><td>1934</td><td>8</td><td>3</td></tr>
+<tr><td class="rang">5</td><td class="nomJoueur" onclick="afficherStats("Samuel Moutoussamy")">Samuel Moutoussamy</td><td>35</td><td>2400</td><td>0</td><td>2</td></tr>
+<tr><td class="rang">6</td><td class="nomJoueur" onclick="afficherStats("Moses Simon")">Moses Simon</td><td>34</td><td>2358</td><td>5</td><td>4</td></tr>
+<tr><td class="rang">7</td><td class="nomJoueur" onclick="afficherStats("Jean-Charles Castelletto")">Jean-Charles Castelletto</td><td>32</td><td>2569</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">8</td><td class="nomJoueur" onclick="afficherStats("Moussa Sissoko")">Moussa Sissoko</td><td>30</td><td>1924</td><td>2</td><td>0</td></tr>
+<tr><td class="rang">9</td><td class="nomJoueur" onclick="afficherStats("Evann Guessand")">Evann Guessand</td><td>30</td><td>1257</td><td>3</td><td>2</td></tr>
+<tr><td class="rang">10</td><td class="nomJoueur" onclick="afficherStats("Ignatius Ganago")">Ignatius Ganago</td><td>28</td><td>1519</td><td>5</td><td>3</td></tr>
+<tr><td class="rang">11</td><td class="nomJoueur" onclick="afficherStats("Nicolas Pallois")">Nicolas Pallois</td><td>26</td><td>2217</td><td>1</td><td>0</td></tr>
+<tr><td class="rang">12</td><td class="nomJoueur" onclick="afficherStats("Pedro Chirivella")">Pedro Chirivella</td><td>26</td><td>2041</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">13</td><td class="nomJoueur" onclick="afficherStats("Marcus Coco")">Marcus Coco</td><td>26</td><td>627</td><td>1</td><td>0</td></tr>
+<tr><td class="rang">14</td><td class="nomJoueur" onclick="afficherStats("Quentin Merlin")">Quentin Merlin</td><td>24</td><td>1803</td><td>1</td><td>2</td></tr>
+<tr><td class="rang">15</td><td class="nomJoueur" onclick="afficherStats("Fabien Centonze")">Fabien Centonze</td><td>23</td><td>1691</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">16</td><td class="nomJoueur" onclick="afficherStats("Sébastien Corchia")">Sébastien Corchia</td><td>22</td><td>775</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">17</td><td class="nomJoueur" onclick="afficherStats("Florent Mollet")">Florent Mollet</td><td>19</td><td>1089</td><td>1</td><td>2</td></tr>
+<tr><td class="rang">18</td><td class="nomJoueur" onclick="afficherStats("Dennis Appiah")">Dennis Appiah</td><td>15</td><td>795</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">19</td><td class="nomJoueur" onclick="afficherStats("João Victor")">João Victor</td><td>13</td><td>838</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">20</td><td class="nomJoueur" onclick="afficherStats("Jaouen Hadjam")">Jaouen Hadjam</td><td>13</td><td>805</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">21</td><td class="nomJoueur" onclick="afficherStats("Charles Traoré")">Charles Traoré</td><td>12</td><td>482</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">22</td><td class="nomJoueur" onclick="afficherStats("Andy Delort")">Andy Delort</td><td>12</td><td>469</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">23</td><td class="nomJoueur" onclick="afficherStats("Lohann Doucet")">Lohann Doucet</td><td>9</td><td>83</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">24</td><td class="nomJoueur" onclick="afficherStats("Fábio")">Fábio</td><td>6</td><td>224</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">25</td><td class="nomJoueur" onclick="afficherStats("Stredair Appuah")">Stredair Appuah</td><td>5</td><td>62</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">26</td><td class="nomJoueur" onclick="afficherStats("Abdoul Kader Bamba")">Abdoul Kader Bamba</td><td>4</td><td>76</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">27</td><td class="nomJoueur" onclick="afficherStats("Mohamed Achi")">Mohamed Achi</td><td>2</td><td>34</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">28</td><td class="nomJoueur" onclick="afficherStats("Rémy Descamps")">Rémy Descamps</td><td>1</td><td>90</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">29</td><td class="nomJoueur" onclick="afficherStats("Nathan Zézé")">Nathan Zézé</td><td>1</td><td>60</td><td>0</td><td>0</td></tr>
+        </table>
+        </div>
+    </div>
+    <div class="saison">
+        <h2>📅 Saison 2023-2024</h2>
+        <p class="compte">35 joueurs ayant joué au moins 1 minute</p>
+        <div class="tableScroll">
+        <table class="tableau">
+            <tr><th>Rang</th><th>Joueur</th><th>Matchs</th><th>Minutes</th><th>Buts</th><th>Passes</th></tr>
+            <tr><td class="rang">1</td><td class="nomJoueur" onclick="afficherStats("Pedro Chirivella")">Pedro Chirivella</td><td>32</td><td>2601</td><td>1</td><td>1</td></tr>
+<tr><td class="rang">2</td><td class="nomJoueur" onclick="afficherStats("Florent Mollet")">Florent Mollet</td><td>29</td><td>2091</td><td>4</td><td>5</td></tr>
+<tr><td class="rang">3</td><td class="nomJoueur" onclick="afficherStats("Mostafa Mohamed")">Mostafa Mohamed</td><td>29</td><td>2017</td><td>8</td><td>2</td></tr>
+<tr><td class="rang">4</td><td class="nomJoueur" onclick="afficherStats("Alban Lafont")">Alban Lafont</td><td>28</td><td>2497</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">5</td><td class="nomJoueur" onclick="afficherStats("Jean-Charles Castelletto")">Jean-Charles Castelletto</td><td>28</td><td>2466</td><td>2</td><td>0</td></tr>
+<tr><td class="rang">6</td><td class="nomJoueur" onclick="afficherStats("Marcus Coco")">Marcus Coco</td><td>28</td><td>1489</td><td>1</td><td>0</td></tr>
+<tr><td class="rang">7</td><td class="nomJoueur" onclick="afficherStats("Moussa Sissoko")">Moussa Sissoko</td><td>26</td><td>1824</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">8</td><td class="nomJoueur" onclick="afficherStats("Samuel Moutoussamy")">Samuel Moutoussamy</td><td>26</td><td>1100</td><td>1</td><td>1</td></tr>
+<tr><td class="rang">9</td><td class="nomJoueur" onclick="afficherStats("Eray Cömert")">Eray Cömert</td><td>25</td><td>1998</td><td>2</td><td>0</td></tr>
+<tr><td class="rang">10</td><td class="nomJoueur" onclick="afficherStats("Douglas Augusto")">Douglas Augusto</td><td>25</td><td>1782</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">11</td><td class="nomJoueur" onclick="afficherStats("Nicolas Pallois")">Nicolas Pallois</td><td>23</td><td>1587</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">12</td><td class="nomJoueur" onclick="afficherStats("Abdoul Kader Bamba")">Abdoul Kader Bamba</td><td>23</td><td>593</td><td>2</td><td>1</td></tr>
+<tr><td class="rang">13</td><td class="nomJoueur" onclick="afficherStats("Moses Simon")">Moses Simon</td><td>22</td><td>1793</td><td>3</td><td>6</td></tr>
+<tr><td class="rang">14</td><td class="nomJoueur" onclick="afficherStats("Matthis Abline")">Matthis Abline</td><td>22</td><td>1044</td><td>5</td><td>1</td></tr>
+<tr><td class="rang">15</td><td class="nomJoueur" onclick="afficherStats("Jean-Kévin Duverne")">Jean-Kévin Duverne</td><td>19</td><td>1350</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">16</td><td class="nomJoueur" onclick="afficherStats("Quentin Merlin")">Quentin Merlin</td><td>16</td><td>1290</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">17</td><td class="nomJoueur" onclick="afficherStats("Tino Kadewere")">Tino Kadewere</td><td>14</td><td>781</td><td>1</td><td>0</td></tr>
+<tr><td class="rang">18</td><td class="nomJoueur" onclick="afficherStats("Bénie Traoré")">Bénie Traoré</td><td>14</td><td>499</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">19</td><td class="nomJoueur" onclick="afficherStats("Nathan Zézé")">Nathan Zézé</td><td>13</td><td>1022</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">20</td><td class="nomJoueur" onclick="afficherStats("Nicolas Cozza")">Nicolas Cozza</td><td>13</td><td>896</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">21</td><td class="nomJoueur" onclick="afficherStats("Kelvin Amian")">Kelvin Amian</td><td>12</td><td>800</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">22</td><td class="nomJoueur" onclick="afficherStats("Ronaël Pierre-Gabriel")">Ronaël Pierre-Gabriel</td><td>12</td><td>594</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">23</td><td class="nomJoueur" onclick="afficherStats("Adson")">Adson</td><td>8</td><td>233</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">24</td><td class="nomJoueur" onclick="afficherStats("Jaouen Hadjam")">Jaouen Hadjam</td><td>8</td><td>105</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">25</td><td class="nomJoueur" onclick="afficherStats("Marquinhos")">Marquinhos</td><td>7</td><td>150</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">26</td><td class="nomJoueur" onclick="afficherStats("Rémy Descamps")">Rémy Descamps</td><td>6</td><td>540</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">27</td><td class="nomJoueur" onclick="afficherStats("Ignatius Ganago")">Ignatius Ganago</td><td>6</td><td>182</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">28</td><td class="nomJoueur" onclick="afficherStats("Stredair Appuah")">Stredair Appuah</td><td>4</td><td>80</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">29</td><td class="nomJoueur" onclick="afficherStats("Fabien Centonze")">Fabien Centonze</td><td>3</td><td>92</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">30</td><td class="nomJoueur" onclick="afficherStats("Hugo Boutsingkham")">Hugo Boutsingkham</td><td>2</td><td>10</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">31</td><td class="nomJoueur" onclick="afficherStats("Denis Petric")">Denis Petric</td><td>1</td><td>23</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">32</td><td class="nomJoueur" onclick="afficherStats("Adel Mahamoud")">Adel Mahamoud</td><td>1</td><td>9</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">33</td><td class="nomJoueur" onclick="afficherStats("Bastien Meupiyou")">Bastien Meupiyou</td><td>1</td><td>9</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">34</td><td class="nomJoueur" onclick="afficherStats("Enzo Mongo")">Enzo Mongo</td><td>1</td><td>9</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">35</td><td class="nomJoueur" onclick="afficherStats("Lamine Diack")">Lamine Diack</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+        </table>
+        </div>
+    </div>
+    <div class="saison">
+        <h2>📅 Saison 2024-2025</h2>
+        <p class="compte">30 joueurs ayant joué au moins 1 minute</p>
+        <div class="tableScroll">
+        <table class="tableau">
+            <tr><th>Rang</th><th>Joueur</th><th>Matchs</th><th>Minutes</th><th>Buts</th><th>Passes</th></tr>
+            <tr><td class="rang">1</td><td class="nomJoueur" onclick="afficherStats("Matthis Abline")">Matthis Abline</td><td>34</td><td>2788</td><td>9</td><td>2</td></tr>
+<tr><td class="rang">2</td><td class="nomJoueur" onclick="afficherStats("Moses Simon")">Moses Simon</td><td>32</td><td>2625</td><td>8</td><td>10</td></tr>
+<tr><td class="rang">3</td><td class="nomJoueur" onclick="afficherStats("Jean-Charles Castelletto")">Jean-Charles Castelletto</td><td>30</td><td>2622</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">4</td><td class="nomJoueur" onclick="afficherStats("Pedro Chirivella")">Pedro Chirivella</td><td>30</td><td>2363</td><td>0</td><td>2</td></tr>
+<tr><td class="rang">5</td><td class="nomJoueur" onclick="afficherStats("Kelvin Amian")">Kelvin Amian</td><td>30</td><td>2163</td><td>1</td><td>0</td></tr>
+<tr><td class="rang">6</td><td class="nomJoueur" onclick="afficherStats("Mostafa Mohamed")">Mostafa Mohamed</td><td>30</td><td>1246</td><td>5</td><td>1</td></tr>
+<tr><td class="rang">7</td><td class="nomJoueur" onclick="afficherStats("Johann Lepenant")">Johann Lepenant</td><td>29</td><td>2054</td><td>2</td><td>1</td></tr>
+<tr><td class="rang">8</td><td class="nomJoueur" onclick="afficherStats("Douglas Augusto")">Douglas Augusto</td><td>28</td><td>2316</td><td>4</td><td>2</td></tr>
+<tr><td class="rang">9</td><td class="nomJoueur" onclick="afficherStats("Nicolas Cozza")">Nicolas Cozza</td><td>27</td><td>2051</td><td>1</td><td>1</td></tr>
+<tr><td class="rang">10</td><td class="nomJoueur" onclick="afficherStats("Nicolas Pallois")">Nicolas Pallois</td><td>26</td><td>2020</td><td>0</td><td>2</td></tr>
+<tr><td class="rang">11</td><td class="nomJoueur" onclick="afficherStats("Sorba Thomas")">Sorba Thomas</td><td>25</td><td>1326</td><td>1</td><td>3</td></tr>
+<tr><td class="rang">12</td><td class="nomJoueur" onclick="afficherStats("Marcus Coco")">Marcus Coco</td><td>20</td><td>955</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">13</td><td class="nomJoueur" onclick="afficherStats("Bahereba Guirassy")">Bahereba Guirassy</td><td>19</td><td>337</td><td>2</td><td>0</td></tr>
+<tr><td class="rang">14</td><td class="nomJoueur" onclick="afficherStats("Anthony Lopes")">Anthony Lopes</td><td>18</td><td>1564</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">15</td><td class="nomJoueur" onclick="afficherStats("Nathan Zézé")">Nathan Zézé</td><td>18</td><td>1513</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">16</td><td class="nomJoueur" onclick="afficherStats("Louis Leroux")">Louis Leroux</td><td>16</td><td>813</td><td>2</td><td>1</td></tr>
+<tr><td class="rang">17</td><td class="nomJoueur" onclick="afficherStats("Jean-Philippe Gbamin")">Jean-Philippe Gbamin</td><td>14</td><td>210</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">18</td><td class="nomJoueur" onclick="afficherStats("Alban Lafont")">Alban Lafont</td><td>12</td><td>1080</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">19</td><td class="nomJoueur" onclick="afficherStats("Tino Kadewere")">Tino Kadewere</td><td>12</td><td>513</td><td>1</td><td>2</td></tr>
+<tr><td class="rang">20</td><td class="nomJoueur" onclick="afficherStats("Dehmaine Tabibou")">Dehmaine Tabibou</td><td>12</td><td>88</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">21</td><td class="nomJoueur" onclick="afficherStats("Ignatius Ganago")">Ignatius Ganago</td><td>11</td><td>232</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">22</td><td class="nomJoueur" onclick="afficherStats("Saïdou Sow")">Saïdou Sow</td><td>9</td><td>800</td><td>1</td><td>0</td></tr>
+<tr><td class="rang">23</td><td class="nomJoueur" onclick="afficherStats("Jean-Kévin Duverne")">Jean-Kévin Duverne</td><td>9</td><td>538</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">24</td><td class="nomJoueur" onclick="afficherStats("Florent Mollet")">Florent Mollet</td><td>9</td><td>240</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">25</td><td class="nomJoueur" onclick="afficherStats("Meschack Elia")">Meschack Elia</td><td>8</td><td>165</td><td>1</td><td>0</td></tr>
+<tr><td class="rang">26</td><td class="nomJoueur" onclick="afficherStats("Fabien Centonze")">Fabien Centonze</td><td>7</td><td>262</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">27</td><td class="nomJoueur" onclick="afficherStats("Francis Coquelin")">Francis Coquelin</td><td>6</td><td>224</td><td>1</td><td>1</td></tr>
+<tr><td class="rang">28</td><td class="nomJoueur" onclick="afficherStats("Patrik Carlgren")">Patrik Carlgren</td><td>5</td><td>416</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">29</td><td class="nomJoueur" onclick="afficherStats("Sékou Doucouré")">Sékou Doucouré</td><td>2</td><td>11</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">30</td><td class="nomJoueur" onclick="afficherStats("Plamedi Nsingi")">Plamedi Nsingi</td><td>1</td><td>16</td><td>0</td><td>0</td></tr>
+        </table>
+        </div>
+    </div>
+    <div class="saison">
+        <h2>📅 Saison 2025-2026</h2>
+        <p class="compte">33 joueurs ayant joué au moins 1 minute</p>
+        <div class="tableScroll">
+        <table class="tableau">
+            <tr><th>Rang</th><th>Joueur</th><th>Matchs</th><th>Minutes</th><th>Buts</th><th>Passes</th></tr>
+            <tr><td class="rang">1</td><td class="nomJoueur" onclick="afficherStats("Matthis Abline")">Matthis Abline</td><td>34</td><td>2587</td><td>8</td><td>5</td></tr>
+<tr><td class="rang">2</td><td class="nomJoueur" onclick="afficherStats("Anthony Lopes")">Anthony Lopes</td><td>33</td><td>2879</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">3</td><td class="nomJoueur" onclick="afficherStats("Nicolas Cozza")">Nicolas Cozza</td><td>30</td><td>2393</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">4</td><td class="nomJoueur" onclick="afficherStats("Johann Lepenant")">Johann Lepenant</td><td>29</td><td>2265</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">5</td><td class="nomJoueur" onclick="afficherStats("Dehmaine Tabibou")">Dehmaine Tabibou</td><td>28</td><td>1276</td><td>1</td><td>0</td></tr>
+<tr><td class="rang">6</td><td class="nomJoueur" onclick="afficherStats("Chidozie Awaziem")">Chidozie Awaziem</td><td>27</td><td>2322</td><td>1</td><td>2</td></tr>
+<tr><td class="rang">7</td><td class="nomJoueur" onclick="afficherStats("Youssef El Arabi")">Youssef El Arabi</td><td>26</td><td>938</td><td>4</td><td>1</td></tr>
+<tr><td class="rang">8</td><td class="nomJoueur" onclick="afficherStats("Kelvin Amian")">Kelvin Amian</td><td>24</td><td>1961</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">9</td><td class="nomJoueur" onclick="afficherStats("Mostafa Mohamed")">Mostafa Mohamed</td><td>24</td><td>1151</td><td>4</td><td>0</td></tr>
+<tr><td class="rang">10</td><td class="nomJoueur" onclick="afficherStats("Louis Leroux")">Louis Leroux</td><td>23</td><td>1444</td><td>1</td><td>1</td></tr>
+<tr><td class="rang">11</td><td class="nomJoueur" onclick="afficherStats("Tylel Tati")">Tylel Tati</td><td>20</td><td>1775</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">12</td><td class="nomJoueur" onclick="afficherStats("Bahereba Guirassy")">Bahereba Guirassy</td><td>20</td><td>819</td><td>2</td><td>1</td></tr>
+<tr><td class="rang">13</td><td class="nomJoueur" onclick="afficherStats("Francis Coquelin")">Francis Coquelin</td><td>17</td><td>655</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">14</td><td class="nomJoueur" onclick="afficherStats("Junior Mwanga")">Junior Mwanga</td><td>16</td><td>1310</td><td>1</td><td>1</td></tr>
+<tr><td class="rang">15</td><td class="nomJoueur" onclick="afficherStats("Fabien Centonze")">Fabien Centonze</td><td>16</td><td>732</td><td>4</td><td>0</td></tr>
+<tr><td class="rang">16</td><td class="nomJoueur" onclick="afficherStats("Deiver Machado")">Deiver Machado</td><td>15</td><td>911</td><td>0</td><td>1</td></tr>
+<tr><td class="rang">17</td><td class="nomJoueur" onclick="afficherStats("Ignatius Ganago")">Ignatius Ganago</td><td>14</td><td>932</td><td>3</td><td>1</td></tr>
+<tr><td class="rang">18</td><td class="nomJoueur" onclick="afficherStats("Ibrahima Sissoko")">Ibrahima Sissoko</td><td>14</td><td>894</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">19</td><td class="nomJoueur" onclick="afficherStats("Mohamed Kaba")">Mohamed Kaba</td><td>13</td><td>1015</td><td>0</td><td>2</td></tr>
+<tr><td class="rang">20</td><td class="nomJoueur" onclick="afficherStats("Ali Yousuf")">Ali Yousuf</td><td>13</td><td>968</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">21</td><td class="nomJoueur" onclick="afficherStats("Kwon Hyeokkyu")">Kwon Hyeokkyu</td><td>12</td><td>757</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">22</td><td class="nomJoueur" onclick="afficherStats("Rémy Cabella")">Rémy Cabella</td><td>12</td><td>659</td><td>2</td><td>0</td></tr>
+<tr><td class="rang">23</td><td class="nomJoueur" onclick="afficherStats("Bahmed Deuff")">Bahmed Deuff</td><td>12</td><td>241</td><td>1</td><td>0</td></tr>
+<tr><td class="rang">24</td><td class="nomJoueur" onclick="afficherStats("Yassine Benhattab")">Yassine Benhattab</td><td>10</td><td>477</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">25</td><td class="nomJoueur" onclick="afficherStats("Amady Camara")">Amady Camara</td><td>10</td><td>163</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">26</td><td class="nomJoueur" onclick="afficherStats("Frédéric Guilbert")">Frédéric Guilbert</td><td>8</td><td>610</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">27</td><td class="nomJoueur" onclick="afficherStats("Mayckel Lahdo")">Mayckel Lahdo</td><td>8</td><td>417</td><td>1</td><td>1</td></tr>
+<tr><td class="rang">28</td><td class="nomJoueur" onclick="afficherStats("Mathieu Acapandie")">Mathieu Acapandie</td><td>8</td><td>348</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">29</td><td class="nomJoueur" onclick="afficherStats("Uroš Radaković")">Uroš Radaković</td><td>7</td><td>97</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">30</td><td class="nomJoueur" onclick="afficherStats("Hong Hyunseok")">Hong Hyunseok</td><td>6</td><td>284</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">31</td><td class="nomJoueur" onclick="afficherStats("Patrik Carlgren")">Patrik Carlgren</td><td>3</td><td>181</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">32</td><td class="nomJoueur" onclick="afficherStats("Sékou Doucouré")">Sékou Doucouré</td><td>2</td><td>135</td><td>0</td><td>0</td></tr>
+<tr><td class="rang">33</td><td class="nomJoueur" onclick="afficherStats("Loubadhe Sylla")">Loubadhe Sylla</td><td>2</td><td>64</td><td>0</td><td>0</td></tr>
+        </table>
+        </div>
+    </div>
+</section>
+</main>
+
+<div id="fenetreStats">
+<div class="contenuStats">
+<span class="fermer" onclick="fermerStats()">×</span>
+<div class="enteteJoueur">
+<img id="photoStats" class="photoStats" src="" alt="Photo du joueur"
+     onerror="this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect width=%22150%22 height=%22150%22 fill=%22%23eeeeee%22/%3E%3Ctext x=%2275%22 y=%2280%22 text-anchor=%22middle%22 font-size=%2248%22%3E⚽%3C/text%3E%3C/svg%3E';">
+<h2 id="nomStats"></h2>
+<p id="posteStats"></p>
+</div>
+<div id="statistiques"></div>
+</div>
+</div>
+
+<footer><p>🟡🟢 FC Nantes - Statistiques des joueurs 🟢🟡</p></footer>
+
+<script>
+const joueurs = {
+    "Alban Lafont": {
+        "poste": "🧤 Gardien",
+        "photo": "images/joueurs/alban-lafont.jpg",
+        "stats": {
+            "2021-2022": [
+                38,
+                3420,
+                0,
+                0
+            ],
+            "2022-2023": [
+                37,
+                3330,
+                0,
+                0
+            ],
+            "2023-2024": [
+                28,
+                2497,
+                0,
+                0
+            ],
+            "2024-2025": [
+                12,
+                1080,
+                0,
+                0
+            ]
+        }
+    },
+    "Andrei Girotto": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/andrei-girotto.jpg",
+        "stats": {
+            "2021-2022": [
+                36,
+                3150,
+                6,
+                1
+            ],
+            "2022-2023": [
+                36,
+                3155,
+                1,
+                1
+            ]
+        }
+    },
+    "Jean-Charles Castelletto": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/jean-charles-castelletto.jpg",
+        "stats": {
+            "2021-2022": [
+                28,
+                2512,
+                1,
+                0
+            ],
+            "2022-2023": [
+                32,
+                2569,
+                0,
+                0
+            ],
+            "2023-2024": [
+                28,
+                2466,
+                2,
+                0
+            ],
+            "2024-2025": [
+                30,
+                2622,
+                0,
+                0
+            ]
+        }
+    },
+    "Nicolas Pallois": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/nicolas-pallois.jpg",
+        "stats": {
+            "2021-2022": [
+                30,
+                2451,
+                1,
+                0
+            ],
+            "2022-2023": [
+                26,
+                2217,
+                1,
+                0
+            ],
+            "2023-2024": [
+                23,
+                1587,
+                0,
+                1
+            ],
+            "2024-2025": [
+                26,
+                2020,
+                0,
+                2
+            ]
+        }
+    },
+    "Dennis Appiah": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/dennis-appiah.jpg",
+        "stats": {
+            "2021-2022": [
+                32,
+                2093,
+                0,
+                0
+            ],
+            "2022-2023": [
+                15,
+                795,
+                0,
+                1
+            ]
+        }
+    },
+    "Fábio": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/fábio.jpg",
+        "stats": {
+            "2021-2022": [
+                27,
+                1678,
+                0,
+                2
+            ],
+            "2022-2023": [
+                6,
+                224,
+                0,
+                0
+            ]
+        }
+    },
+    "Sébastien Corchia": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/sebastien-corchia.jpg",
+        "stats": {
+            "2021-2022": [
+                28,
+                1318,
+                0,
+                3
+            ],
+            "2022-2023": [
+                22,
+                775,
+                0,
+                1
+            ]
+        }
+    },
+    "Marcus Coco": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/marcus-coco.jpg",
+        "stats": {
+            "2021-2022": [
+                24,
+                927,
+                1,
+                1
+            ],
+            "2022-2023": [
+                26,
+                627,
+                1,
+                0
+            ],
+            "2023-2024": [
+                28,
+                1489,
+                1,
+                0
+            ],
+            "2024-2025": [
+                20,
+                955,
+                0,
+                1
+            ]
+        }
+    },
+    "Charles Traoré": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/charles-traore.jpg",
+        "stats": {
+            "2021-2022": [
+                16,
+                715,
+                0,
+                0
+            ],
+            "2022-2023": [
+                12,
+                482,
+                0,
+                0
+            ]
+        }
+    },
+    "Abdoulaye Sylla": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/abdoulaye-sylla.jpg",
+        "stats": {
+            "2021-2022": [
+                2,
+                158,
+                0,
+                0
+            ]
+        }
+    },
+    "Ludovic Blas": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/ludovic-blas.jpg",
+        "stats": {
+            "2021-2022": [
+                35,
+                2977,
+                10,
+                5
+            ],
+            "2022-2023": [
+                37,
+                2818,
+                7,
+                5
+            ]
+        }
+    },
+    "Pedro Chirivella": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/pedro-chirivella.jpg",
+        "stats": {
+            "2021-2022": [
+                31,
+                2646,
+                3,
+                1
+            ],
+            "2022-2023": [
+                26,
+                2041,
+                0,
+                0
+            ],
+            "2023-2024": [
+                32,
+                2601,
+                1,
+                1
+            ],
+            "2024-2025": [
+                30,
+                2363,
+                0,
+                2
+            ]
+        }
+    },
+    "Samuel Moutoussamy": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/samuel-moutoussamy.jpg",
+        "stats": {
+            "2021-2022": [
+                30,
+                1502,
+                0,
+                1
+            ],
+            "2022-2023": [
+                35,
+                2400,
+                0,
+                2
+            ],
+            "2023-2024": [
+                26,
+                1100,
+                1,
+                1
+            ]
+        }
+    },
+    "Wylan Cyprien": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/wylan-cyprien.jpg",
+        "stats": {
+            "2021-2022": [
+                24,
+                1494,
+                2,
+                3
+            ]
+        }
+    },
+    "Roli Pereira de Sa": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/roli-pereira-de-sa.jpg",
+        "stats": {
+            "2021-2022": [
+                17,
+                570,
+                0,
+                0
+            ]
+        }
+    },
+    "Randal Kolo Muani": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/randal-kolo-muani.jpg",
+        "stats": {
+            "2021-2022": [
+                36,
+                2958,
+                12,
+                5
+            ]
+        }
+    },
+    "Moses Simon": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/moses-simon.jpg",
+        "stats": {
+            "2021-2022": [
+                30,
+                2351,
+                6,
+                8
+            ],
+            "2022-2023": [
+                34,
+                2358,
+                5,
+                4
+            ],
+            "2023-2024": [
+                22,
+                1793,
+                3,
+                6
+            ],
+            "2024-2025": [
+                32,
+                2625,
+                8,
+                10
+            ]
+        }
+    },
+    "Quentin Merlin": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/quentin-merlin.jpg",
+        "stats": {
+            "2021-2022": [
+                28,
+                1924,
+                2,
+                3
+            ],
+            "2022-2023": [
+                24,
+                1803,
+                1,
+                2
+            ],
+            "2023-2024": [
+                16,
+                1290,
+                0,
+                1
+            ]
+        }
+    },
+    "Osman Bukari": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/osman-bukari.jpg",
+        "stats": {
+            "2021-2022": [
+                24,
+                1009,
+                2,
+                4
+            ]
+        }
+    },
+    "Kalifa Coulibaly": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/kalifa-coulibaly.jpg",
+        "stats": {
+            "2021-2022": [
+                21,
+                848,
+                5,
+                0
+            ]
+        }
+    },
+    "Willem Geubbels": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/willem-geubbels.jpg",
+        "stats": {
+            "2021-2022": [
+                22,
+                531,
+                2,
+                1
+            ]
+        }
+    },
+    "Renaud Emond": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/renaud-emond.jpg",
+        "stats": {
+            "2021-2022": [
+                6,
+                189,
+                0,
+                0
+            ]
+        }
+    },
+    "Jean-Kévin Augustin": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/jean-kevin-augustin.jpg",
+        "stats": {
+            "2021-2022": [
+                7,
+                77,
+                0,
+                0
+            ]
+        }
+    },
+    "Rémy Descamps": {
+        "poste": "🧤 Gardien",
+        "photo": "images/joueurs/remy-descamps.jpg",
+        "stats": {
+            "2022-2023": [
+                1,
+                90,
+                0,
+                0
+            ],
+            "2023-2024": [
+                6,
+                540,
+                0,
+                0
+            ]
+        }
+    },
+    "João Victor": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/joão-victor.jpg",
+        "stats": {
+            "2022-2023": [
+                13,
+                838,
+                0,
+                1
+            ]
+        }
+    },
+    "Jaouen Hadjam": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/jaouen-hadjam.jpg",
+        "stats": {
+            "2022-2023": [
+                13,
+                805,
+                0,
+                1
+            ],
+            "2023-2024": [
+                8,
+                105,
+                0,
+                0
+            ]
+        }
+    },
+    "Nathan Zézé": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/nathan-zeze.jpg",
+        "stats": {
+            "2022-2023": [
+                1,
+                60,
+                0,
+                0
+            ],
+            "2023-2024": [
+                13,
+                1022,
+                0,
+                0
+            ],
+            "2024-2025": [
+                18,
+                1513,
+                0,
+                0
+            ]
+        }
+    },
+    "Moussa Sissoko": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/moussa-sissoko.jpg",
+        "stats": {
+            "2022-2023": [
+                30,
+                1924,
+                2,
+                0
+            ],
+            "2023-2024": [
+                26,
+                1824,
+                0,
+                0
+            ]
+        }
+    },
+    "Fabien Centonze": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/fabien-centonze.jpg",
+        "stats": {
+            "2022-2023": [
+                23,
+                1691,
+                0,
+                0
+            ],
+            "2023-2024": [
+                3,
+                92,
+                0,
+                0
+            ],
+            "2024-2025": [
+                7,
+                262,
+                0,
+                0
+            ],
+            "2025-2026": [
+                16,
+                732,
+                4,
+                0
+            ]
+        }
+    },
+    "Florent Mollet": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/florent-mollet.jpg",
+        "stats": {
+            "2022-2023": [
+                19,
+                1089,
+                1,
+                2
+            ],
+            "2023-2024": [
+                29,
+                2091,
+                4,
+                5
+            ],
+            "2024-2025": [
+                9,
+                240,
+                0,
+                0
+            ]
+        }
+    },
+    "Lohann Doucet": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/lohann-doucet.jpg",
+        "stats": {
+            "2022-2023": [
+                9,
+                83,
+                0,
+                0
+            ]
+        }
+    },
+    "Mohamed Achi": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/mohamed-achi.jpg",
+        "stats": {
+            "2022-2023": [
+                2,
+                34,
+                0,
+                0
+            ]
+        }
+    },
+    "Mostafa Mohamed": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/mostafa-mohamed.jpg",
+        "stats": {
+            "2022-2023": [
+                36,
+                1934,
+                8,
+                3
+            ],
+            "2023-2024": [
+                29,
+                2017,
+                8,
+                2
+            ],
+            "2024-2025": [
+                30,
+                1246,
+                5,
+                1
+            ],
+            "2025-2026": [
+                24,
+                1151,
+                4,
+                0
+            ]
+        }
+    },
+    "Ignatius Ganago": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/ignatius-ganago.jpg",
+        "stats": {
+            "2022-2023": [
+                28,
+                1519,
+                5,
+                3
+            ],
+            "2023-2024": [
+                6,
+                182,
+                0,
+                0
+            ],
+            "2024-2025": [
+                11,
+                232,
+                0,
+                0
+            ],
+            "2025-2026": [
+                14,
+                932,
+                3,
+                1
+            ]
+        }
+    },
+    "Evann Guessand": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/evann-guessand.jpg",
+        "stats": {
+            "2022-2023": [
+                30,
+                1257,
+                3,
+                2
+            ]
+        }
+    },
+    "Andy Delort": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/andy-delort.jpg",
+        "stats": {
+            "2022-2023": [
+                12,
+                469,
+                0,
+                0
+            ]
+        }
+    },
+    "Abdoul Kader Bamba": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/abdoul-kader-bamba.jpg",
+        "stats": {
+            "2022-2023": [
+                4,
+                76,
+                0,
+                0
+            ],
+            "2023-2024": [
+                23,
+                593,
+                2,
+                1
+            ]
+        }
+    },
+    "Stredair Appuah": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/stredair-appuah.jpg",
+        "stats": {
+            "2022-2023": [
+                5,
+                62,
+                0,
+                0
+            ],
+            "2023-2024": [
+                4,
+                80,
+                0,
+                0
+            ]
+        }
+    },
+    "Denis Petric": {
+        "poste": "🧤 Gardien",
+        "photo": "images/joueurs/denis-petric.jpg",
+        "stats": {
+            "2023-2024": [
+                1,
+                23,
+                0,
+                0
+            ]
+        }
+    },
+    "Eray Cömert": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/eray-comert.jpg",
+        "stats": {
+            "2023-2024": [
+                25,
+                1998,
+                2,
+                0
+            ]
+        }
+    },
+    "Jean-Kévin Duverne": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/jean-kevin-duverne.jpg",
+        "stats": {
+            "2023-2024": [
+                19,
+                1350,
+                0,
+                0
+            ],
+            "2024-2025": [
+                9,
+                538,
+                0,
+                0
+            ]
+        }
+    },
+    "Nicolas Cozza": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/nicolas-cozza.jpg",
+        "stats": {
+            "2023-2024": [
+                13,
+                896,
+                0,
+                0
+            ],
+            "2024-2025": [
+                27,
+                2051,
+                1,
+                1
+            ],
+            "2025-2026": [
+                30,
+                2393,
+                0,
+                1
+            ]
+        }
+    },
+    "Kelvin Amian": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/kelvin-amian.jpg",
+        "stats": {
+            "2023-2024": [
+                12,
+                800,
+                0,
+                1
+            ],
+            "2024-2025": [
+                30,
+                2163,
+                1,
+                0
+            ],
+            "2025-2026": [
+                24,
+                1961,
+                0,
+                1
+            ]
+        }
+    },
+    "Ronaël Pierre-Gabriel": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/ronael-pierre-gabriel.jpg",
+        "stats": {
+            "2023-2024": [
+                12,
+                594,
+                0,
+                0
+            ]
+        }
+    },
+    "Hugo Boutsingkham": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/hugo-boutsingkham.jpg",
+        "stats": {
+            "2023-2024": [
+                2,
+                10,
+                0,
+                0
+            ]
+        }
+    },
+    "Bastien Meupiyou": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/bastien-meupiyou.jpg",
+        "stats": {
+            "2023-2024": [
+                1,
+                9,
+                0,
+                0
+            ]
+        }
+    },
+    "Enzo Mongo": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/enzo-mongo.jpg",
+        "stats": {
+            "2023-2024": [
+                1,
+                9,
+                0,
+                0
+            ]
+        }
+    },
+    "Douglas Augusto": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/douglas-augusto.jpg",
+        "stats": {
+            "2023-2024": [
+                25,
+                1782,
+                0,
+                0
+            ],
+            "2024-2025": [
+                28,
+                2316,
+                4,
+                2
+            ]
+        }
+    },
+    "Lamine Diack": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/lamine-diack.jpg",
+        "stats": {
+            "2023-2024": [
+                1,
+                1,
+                0,
+                0
+            ]
+        }
+    },
+    "Matthis Abline": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/matthis-abline.jpg",
+        "stats": {
+            "2023-2024": [
+                22,
+                1044,
+                5,
+                1
+            ],
+            "2024-2025": [
+                34,
+                2788,
+                9,
+                2
+            ],
+            "2025-2026": [
+                34,
+                2587,
+                8,
+                5
+            ]
+        }
+    },
+    "Tino Kadewere": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/tino-kadewere.jpg",
+        "stats": {
+            "2023-2024": [
+                14,
+                781,
+                1,
+                0
+            ],
+            "2024-2025": [
+                12,
+                513,
+                1,
+                2
+            ]
+        }
+    },
+    "Bénie Traoré": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/benie-traore.jpg",
+        "stats": {
+            "2023-2024": [
+                14,
+                499,
+                0,
+                1
+            ]
+        }
+    },
+    "Adson": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/adson.jpg",
+        "stats": {
+            "2023-2024": [
+                8,
+                233,
+                0,
+                0
+            ]
+        }
+    },
+    "Marquinhos": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/marquinhos.jpg",
+        "stats": {
+            "2023-2024": [
+                7,
+                150,
+                0,
+                1
+            ]
+        }
+    },
+    "Adel Mahamoud": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/adel-mahamoud.jpg",
+        "stats": {
+            "2023-2024": [
+                1,
+                9,
+                0,
+                0
+            ]
+        }
+    },
+    "Anthony Lopes": {
+        "poste": "🧤 Gardien",
+        "photo": "images/joueurs/anthony-lopes.jpg",
+        "stats": {
+            "2024-2025": [
+                18,
+                1564,
+                0,
+                0
+            ],
+            "2025-2026": [
+                33,
+                2879,
+                0,
+                0
+            ]
+        }
+    },
+    "Patrik Carlgren": {
+        "poste": "🧤 Gardien",
+        "photo": "images/joueurs/patrik-carlgren.jpg",
+        "stats": {
+            "2024-2025": [
+                5,
+                416,
+                0,
+                0
+            ],
+            "2025-2026": [
+                3,
+                181,
+                0,
+                0
+            ]
+        }
+    },
+    "Saïdou Sow": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/saidou-sow.jpg",
+        "stats": {
+            "2024-2025": [
+                9,
+                800,
+                1,
+                0
+            ]
+        }
+    },
+    "Sékou Doucouré": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/sekou-doucoure.jpg",
+        "stats": {
+            "2024-2025": [
+                2,
+                11,
+                0,
+                0
+            ],
+            "2025-2026": [
+                2,
+                135,
+                0,
+                0
+            ]
+        }
+    },
+    "Johann Lepenant": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/johann-lepenant.jpg",
+        "stats": {
+            "2024-2025": [
+                29,
+                2054,
+                2,
+                1
+            ],
+            "2025-2026": [
+                29,
+                2265,
+                0,
+                1
+            ]
+        }
+    },
+    "Louis Leroux": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/louis-leroux.jpg",
+        "stats": {
+            "2024-2025": [
+                16,
+                813,
+                2,
+                1
+            ],
+            "2025-2026": [
+                23,
+                1444,
+                1,
+                1
+            ]
+        }
+    },
+    "Francis Coquelin": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/francis-coquelin.jpg",
+        "stats": {
+            "2024-2025": [
+                6,
+                224,
+                1,
+                1
+            ],
+            "2025-2026": [
+                17,
+                655,
+                0,
+                1
+            ]
+        }
+    },
+    "Jean-Philippe Gbamin": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/jean-philippe-gbamin.jpg",
+        "stats": {
+            "2024-2025": [
+                14,
+                210,
+                0,
+                0
+            ]
+        }
+    },
+    "Dehmaine Tabibou": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/dehmaine-tabibou.jpg",
+        "stats": {
+            "2024-2025": [
+                12,
+                88,
+                0,
+                0
+            ],
+            "2025-2026": [
+                28,
+                1276,
+                1,
+                0
+            ]
+        }
+    },
+    "Sorba Thomas": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/sorba-thomas.jpg",
+        "stats": {
+            "2024-2025": [
+                25,
+                1326,
+                1,
+                3
+            ]
+        }
+    },
+    "Bahereba Guirassy": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/bahereba-guirassy.jpg",
+        "stats": {
+            "2024-2025": [
+                19,
+                337,
+                2,
+                0
+            ],
+            "2025-2026": [
+                20,
+                819,
+                2,
+                1
+            ]
+        }
+    },
+    "Meschack Elia": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/meschack-elia.jpg",
+        "stats": {
+            "2024-2025": [
+                8,
+                165,
+                1,
+                0
+            ]
+        }
+    },
+    "Plamedi Nsingi": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/plamedi-nsingi.jpg",
+        "stats": {
+            "2024-2025": [
+                1,
+                16,
+                0,
+                0
+            ]
+        }
+    },
+    "Tylel Tati": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/tylel-tati.jpg",
+        "stats": {
+            "2025-2026": [
+                20,
+                1775,
+                0,
+                0
+            ]
+        }
+    },
+    "Junior Mwanga": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/junior-mwanga.jpg",
+        "stats": {
+            "2025-2026": [
+                16,
+                1310,
+                1,
+                1
+            ]
+        }
+    },
+    "Ali Yousuf": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/ali-yousuf.jpg",
+        "stats": {
+            "2025-2026": [
+                13,
+                968,
+                0,
+                0
+            ]
+        }
+    },
+    "Deiver Machado": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/deiver-machado.jpg",
+        "stats": {
+            "2025-2026": [
+                15,
+                911,
+                0,
+                1
+            ]
+        }
+    },
+    "Frédéric Guilbert": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/frederic-guilbert.jpg",
+        "stats": {
+            "2025-2026": [
+                8,
+                610,
+                0,
+                0
+            ]
+        }
+    },
+    "Mathieu Acapandie": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/mathieu-acapandie.jpg",
+        "stats": {
+            "2025-2026": [
+                8,
+                348,
+                0,
+                0
+            ]
+        }
+    },
+    "Uroš Radaković": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/uroš-radaković.jpg",
+        "stats": {
+            "2025-2026": [
+                7,
+                97,
+                0,
+                0
+            ]
+        }
+    },
+    "Loubadhe Sylla": {
+        "poste": "🛡️ Défenseur",
+        "photo": "images/joueurs/loubadhe-sylla.jpg",
+        "stats": {
+            "2025-2026": [
+                2,
+                64,
+                0,
+                0
+            ]
+        }
+    },
+    "Chidozie Awaziem": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/chidozie-awaziem.jpg",
+        "stats": {
+            "2025-2026": [
+                27,
+                2322,
+                1,
+                2
+            ]
+        }
+    },
+    "Mohamed Kaba": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/mohamed-kaba.jpg",
+        "stats": {
+            "2025-2026": [
+                13,
+                1015,
+                0,
+                2
+            ]
+        }
+    },
+    "Ibrahima Sissoko": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/ibrahima-sissoko.jpg",
+        "stats": {
+            "2025-2026": [
+                14,
+                894,
+                0,
+                0
+            ]
+        }
+    },
+    "Kwon Hyeokkyu": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/kwon-hyeokkyu.jpg",
+        "stats": {
+            "2025-2026": [
+                12,
+                757,
+                0,
+                0
+            ]
+        }
+    },
+    "Rémy Cabella": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/remy-cabella.jpg",
+        "stats": {
+            "2025-2026": [
+                12,
+                659,
+                2,
+                0
+            ]
+        }
+    },
+    "Mayckel Lahdo": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/mayckel-lahdo.jpg",
+        "stats": {
+            "2025-2026": [
+                8,
+                417,
+                1,
+                1
+            ]
+        }
+    },
+    "Hong Hyunseok": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/hong-hyunseok.jpg",
+        "stats": {
+            "2025-2026": [
+                6,
+                284,
+                0,
+                0
+            ]
+        }
+    },
+    "Bahmed Deuff": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/bahmed-deuff.jpg",
+        "stats": {
+            "2025-2026": [
+                12,
+                241,
+                1,
+                0
+            ]
+        }
+    },
+    "Youssef El Arabi": {
+        "poste": "⚽ Milieu",
+        "photo": "images/joueurs/youssef-el-arabi.jpg",
+        "stats": {
+            "2025-2026": [
+                26,
+                938,
+                4,
+                1
+            ]
+        }
+    },
+    "Yassine Benhattab": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/yassine-benhattab.jpg",
+        "stats": {
+            "2025-2026": [
+                10,
+                477,
+                0,
+                0
+            ]
+        }
+    },
+    "Amady Camara": {
+        "poste": "⚡ Attaquant",
+        "photo": "images/joueurs/amady-camara.jpg",
+        "stats": {
+            "2025-2026": [
+                10,
+                163,
+                0,
+                0
+            ]
+        }
+    }
+};
+
+function afficherStats(nom) {
+    const joueur=joueurs[nom];
+    if(!joueur) return;
+    document.getElementById("nomStats").innerHTML=nom;
+    document.getElementById("posteStats").innerHTML=joueur.poste;
+    document.getElementById("photoStats").src=joueur.photo;
+    document.getElementById("photoStats").alt="Photo de "+nom;
+    let contenu="";
+    for(const saison in joueur.stats) {
+        const stats=joueur.stats[saison];
+        contenu += '<div class="ligneSaison"><h3>📅 '+saison+'</h3><div class="statsGrille">'+
+        '<div class="stat"><strong>'+stats[0]+'</strong><span>🎽 Matchs</span></div>'+
+        '<div class="stat"><strong>'+stats[1]+'</strong><span>⏱️ Minutes</span></div>'+
+        '<div class="stat"><strong>'+stats[2]+'</strong><span>⚽ Buts</span></div>'+
+        '<div class="stat"><strong>'+stats[3]+'</strong><span>🎯 Passes</span></div>'+
+        '</div></div>';
+    }
+    document.getElementById("statistiques").innerHTML=contenu;
+    document.getElementById("fenetreStats").style.display="block";
+}
+function fermerStats(){document.getElementById("fenetreStats").style.display="none";}
+window.onclick=function(event){
+    const fenetre=document.getElementById("fenetreStats");
+    if(event.target===fenetre) fenetre.style.display="none";
+}
+</script>
+</body>
+</html>

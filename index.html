@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPTA Cholet Chocolat</title>
+	<link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <h1>FC Nantes</h1>
+    <p>on va gagner la coupe de France</p>
+	<p>J'aime le chocolat</p>
+	<img src="image.jpg" width="150">
+  <p id="texte">Qui va gagner la LDC?</p>
+<button onclick="changerTexte()">Qui va gagner la LDC?</button>
+<body>
+<p id="Qui va gagner la LDC">Texte initial</p>
+<script>
+function changerTexte() {
+    document.getElementById("texte").innerHTML = "Le FC Nantes";
+}
+</script>
+    <button onclick="alert('Dans 10 ans on gagne la ligue des champions')">Clique ici</button>
+	<button onclick="alert('#Waldemar out')">Clique ici</button>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>FC Nantes - Site des Canaris</title>
+
+    <!-- On relie notre fichier CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- EN-TÊTE DU SITE -->
+    <!-- ========================= -->
+
+    <header>
+
+        <h1>🟡🟢 FC NANTES 🟢🟡</h1>
+
+        <p id="slogan">
+            Bienvenue chez les Canaris !
+        </p>
+
+        <!-- Menu de navigation -->
+
+       <nav>
+    <a href="index.html">Accueil</a>
+    <a href="jeu.html">Jeu</a>
+    <a href="boutique.html">Boutique</a>
+    <a href="joueurs.html">Base de données des joueurs</a>
+</nav>
+        
+
+    </header>
+
+
+    <!-- ========================= -->
+    <!-- CONTENU PRINCIPAL -->
+    <!-- ========================= -->
+
+    <main>
+
+        <section class="bloc">
+
+            <h2>Bienvenue sur le site du FC Nantes</h2>
+
+            <p id="texte">
+                Le FC Nantes est un club historique du football français.
+            </p>
+
+          
+
+
+        <!-- ========================= -->
+        <!-- IMAGE QUI CHANGE -->
+        <!-- ========================= -->
+
+       
+
+
+        <!-- ========================= -->
+        <!-- TEXTE ANIMÉ -->
+        <!-- ========================= -->
+
+        <section class="bloc">
+
+            <h2>Allez Nantes !</h2>
+
+            <p id="texteAnime">
+                🟡🟢 ALLEZ LES CANARIS ! 🟢🟡
+            </p>
+
+        </section>
+
+
+        
+
+
+        <!-- ========================= -->
+        <!-- FORMULAIRE -->
+        <!-- ========================= -->
+
+        <section class="bloc">
+
+            <h2>Contact</h2>
+
+            <form onsubmit="envoyerFormulaire(event)">
+
+                <label>
+                    Nom :
+                </label>
+
+                <input type="text" id="nom" required>
+
+                <br><br>
+
+                <label>
+                    Email :
+                </label>
+
+                <input type="email" id="email" required>
+
+                <br><br>
+
+                <label>
+                    Message :
+                </label>
+
+                <br>
+
+                <textarea id="formMessage" required></textarea>
+
+                <br><br>
+
+                <button type="submit">
+                    Envoyer
+                </button>
+
+            </form>
+
+            <p id="confirmation"></p>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================= -->
+    <!-- PIED DE PAGE -->
+    <!-- ========================= -->
+
+    <footer>
+
+        <p>
+            🟡🟢 Site consacré au FC Nantes 🟢🟡
+        </p>
+
+    </footer>
+
+
+    <!-- On charge JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
+<!-- ================================= -->
+<!-- PALMARES DU FC NANTES -->
+<!-- ================================= -->
+
+<section class="bloc">
+
+    <h2>🏆 Palmarès du FC Nantes</h2>
+
+    <p>
+        Découvrez les principaux trophées remportés par les Canaris !
+    </p>
+
+    <div class="palmares">
+
+        <div class="trophee">
+            <h3>🥇 Champion de France</h3>
+            <p class="nombreTrophees">8</p>
+            <p>
+                1965 - 1966 - 1973 - 1977 -
+                1980 - 1983 - 1995 - 2001
+            </p>
+        </div>
+
+        <div class="trophee">
+            <h3>🏆 Coupe de France</h3>
+            <p class="nombreTrophees">4</p>
+            <p>
+                1979 - 1999 - 2000 - 2022
+            </p>
+        </div>
+
+        <div class="trophee">
+            <h3>🥇 Trophée des Champions</h3>
+            <p class="nombreTrophees">3</p>
+            <p>
+                1965 - 1999 - 2001
+            </p>
+        </div>
+
+        <div class="trophee">
+            <h3>🌟 Coupe Gambardella</h3>
+            <p class="nombreTrophees">3</p>
+            <p>
+                1974 - 1975 - 2002
+            </p>
+        </div>
+
+    </div>
+
+    <button onclick="afficherPalmares()">
+        📜 Afficher un résumé
+    </button>
+
+    <p id="resumePalmares"></p>
+
+</section>

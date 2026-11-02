@@ -1,0 +1,556 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>FC Nantes - Jeu & Quiz</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* Zone du mini-jeu */
+        #zoneJeu {
+
+            position: relative;
+
+            width: 90%;
+            max-width: 700px;
+            height: 300px;
+
+            margin: 20px auto;
+
+            background-color: #e8f5e9;
+
+            border: 4px solid #00852b;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+        }
+
+
+        /* Canari */
+
+        #canari {
+
+            position: absolute;
+
+            left: 45%;
+            top: 40%;
+
+            font-size: 30px;
+
+            padding: 10px 15px;
+
+            cursor: pointer;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>🟡🟢 FC NANTES 🟢🟡</h1>
+
+    <p>Jeu & Quiz</p>
+
+    <nav>
+
+        <a href="index.html">Accueil</a>
+
+        <a href="jeu.html">Jeu & Quiz</a>
+
+        <a href="boutique.html">Boutique</a>
+
+    </nav>
+
+</header>
+
+
+
+<main>
+
+
+    <!-- ========================= -->
+    <!-- COMPTEUR DE POINTS -->
+    <!-- ========================= -->
+
+    <section class="bloc">
+
+        <h2>⭐ Mes points</h2>
+
+        <p
+            id="points"
+            class="grandNombre">
+            0
+        </p>
+
+        <button onclick="reinitialiserPoints()">
+            🔄 Réinitialiser
+        </button>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- MINI-JEU -->
+    <!-- ========================= -->
+
+    <section class="bloc">
+
+        <h2>🎮 Attrape le Canari !</h2>
+
+        <p>
+            Clique sur le Canari le plus souvent possible
+            avant la fin du temps !
+        </p>
+
+        <p>
+            Temps restant :
+            <strong id="temps">10</strong>
+            secondes
+        </p>
+
+
+        <div id="zoneJeu">
+
+            <button
+                id="canari"
+                onclick="attraperCanari()">
+
+                🐤
+
+            </button>
+
+        </div>
+
+
+        <p id="messageJeu">
+            Clique sur « Commencer » pour jouer.
+        </p>
+
+
+        <button onclick="demarrerJeu()">
+            ▶️ Commencer le jeu
+        </button>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- QUIZ -->
+    <!-- ========================= -->
+
+    <section class="bloc">
+
+        <h2>❓ Quiz FC Nantes</h2>
+
+        <p>
+            Dans quelle ville le FC Nantes est-il situé ?
+        </p>
+
+
+        <button onclick="reponseQuiz('Nantes')">
+            Nantes
+        </button>
+
+        <button onclick="reponseQuiz('Paris')">
+            Paris
+        </button>
+
+        <button onclick="reponseQuiz('Lyon')">
+            Lyon
+        </button>
+
+
+        <p id="resultatQuiz"></p>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- QCM -->
+    <!-- ========================= -->
+
+    <section class="bloc">
+
+        <h2>📝 QCM FC Nantes</h2>
+
+        <p>
+            Quel est le surnom traditionnel du FC Nantes ?
+        </p>
+
+
+        <label>
+
+            <input
+                type="radio"
+                name="qcm"
+                value="canaris">
+
+            Les Canaris
+
+        </label>
+
+
+        <br><br>
+
+
+        <label>
+
+            <input
+                type="radio"
+                name="qcm"
+                value="lions">
+
+            Les Lions
+
+        </label>
+
+
+        <br><br>
+
+
+        <label>
+
+            <input
+                type="radio"
+                name="qcm"
+                value="tigres">
+
+            Les Tigres
+
+        </label>
+
+
+        <br><br>
+
+
+        <button onclick="verifierQCM()">
+            Vérifier ma réponse
+        </button>
+
+
+        <p id="resultatQCM"></p>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- SCORE -->
+    <!-- ========================= -->
+
+    <section class="bloc">
+
+        <h2>🏆 Score final</h2>
+
+        <p id="scoreFinal">
+            Ton score est de 0 point.
+        </p>
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        🟡🟢 Allez Nantes ! 🟢🟡
+    </p>
+
+</footer>
+
+
+
+<!-- ====================================== -->
+<!-- JAVASCRIPT DU JEU -->
+<!-- ====================================== -->
+
+<script>
+
+    /* ============================= */
+    /* VARIABLES */
+    /* ============================= */
+
+    let points = 0;
+
+    let tempsRestant = 10;
+
+    let jeuEnCours = false;
+
+    let intervalleJeu = null;
+
+    let quizTermine = false;
+
+
+
+    /* ============================= */
+    /* AJOUTER DES POINTS */
+    /* ============================= */
+
+    function ajouterPoints(nombre) {
+
+        points = points + nombre;
+
+        document.getElementById("points").innerHTML = points;
+
+        document.getElementById("scoreFinal").innerHTML =
+            "🏆 Ton score est de " + points + " points.";
+
+    }
+
+
+
+    /* ============================= */
+    /* REMETTRE LES POINTS À ZÉRO */
+    /* ============================= */
+
+    function reinitialiserPoints() {
+
+        points = 0;
+
+        document.getElementById("points").innerHTML = "0";
+
+        document.getElementById("scoreFinal").innerHTML =
+            "Ton score est de 0 point.";
+
+    }
+
+
+
+    /* ============================= */
+    /* DÉMARRER LE JEU */
+    /* ============================= */
+
+    function demarrerJeu() {
+
+        /* Si le jeu est déjà lancé,
+           on ne fait rien */
+
+        if (jeuEnCours) {
+
+            return;
+
+        }
+
+
+        jeuEnCours = true;
+
+        tempsRestant = 10;
+
+
+        document.getElementById("temps").innerHTML =
+            tempsRestant;
+
+
+        document.getElementById("messageJeu").innerHTML =
+            "🎮 C'est parti ! Attrape le Canari !";
+
+
+        /* Déplacer immédiatement le Canari */
+
+        deplacerCanari();
+
+
+        /* Compte à rebours */
+
+        intervalleJeu = setInterval(function() {
+
+            tempsRestant--;
+
+            document.getElementById("temps").innerHTML =
+                tempsRestant;
+
+
+            /* Lorsque le temps arrive à zéro */
+
+            if (tempsRestant <= 0) {
+
+                clearInterval(intervalleJeu);
+
+                intervalleJeu = null;
+
+                jeuEnCours = false;
+
+
+                document.getElementById("messageJeu").innerHTML =
+                    "⏰ Temps terminé ! Ton score est de " +
+                    points +
+                    " points.";
+
+            }
+
+        }, 1000);
+
+    }
+
+
+
+    /* ============================= */
+    /* CLIQUER SUR LE CANARI */
+    /* ============================= */
+
+    function attraperCanari() {
+
+        /* Si le jeu n'a pas commencé */
+
+        if (!jeuEnCours) {
+
+            document.getElementById("messageJeu").innerHTML =
+                "⚠️ Clique d'abord sur « Commencer le jeu » !";
+
+            return;
+
+        }
+
+
+        /* +1 point */
+
+        ajouterPoints(1);
+
+
+        /* Déplacer le Canari */
+
+        deplacerCanari();
+
+    }
+
+
+
+    /* ============================= */
+    /* DÉPLACER LE CANARI */
+    /* ============================= */
+
+    function deplacerCanari() {
+
+        let zone =
+            document.getElementById("zoneJeu");
+
+        let canari =
+            document.getElementById("canari");
+
+
+        /* Position horizontale */
+
+        let x =
+            Math.random() *
+            (zone.clientWidth - canari.offsetWidth);
+
+
+        /* Position verticale */
+
+        let y =
+            Math.random() *
+            (zone.clientHeight - canari.offsetHeight);
+
+
+        canari.style.left =
+            x + "px";
+
+        canari.style.top =
+            y + "px";
+
+    }
+
+
+
+    /* ============================= */
+    /* QUIZ */
+    /* ============================= */
+
+    function reponseQuiz(reponse) {
+
+        if (quizTermine) {
+
+            return;
+
+        }
+
+
+        if (reponse === "Nantes") {
+
+            ajouterPoints(5);
+
+            document.getElementById("resultatQuiz").innerHTML =
+                "✅ Bonne réponse ! +5 points !";
+
+        }
+
+        else {
+
+            document.getElementById("resultatQuiz").innerHTML =
+                "❌ Mauvaise réponse !";
+
+        }
+
+
+        quizTermine = true;
+
+    }
+
+
+
+    /* ============================= */
+    /* QCM */
+    /* ============================= */
+
+    function verifierQCM() {
+
+        let choix =
+            document.querySelector(
+                'input[name="qcm"]:checked'
+            );
+
+
+        if (choix === null) {
+
+            document.getElementById("resultatQCM").innerHTML =
+                "⚠️ Sélectionne une réponse.";
+
+            return;
+
+        }
+
+
+        if (choix.value === "canaris") {
+
+            ajouterPoints(5);
+
+            document.getElementById("resultatQCM").innerHTML =
+                "✅ Bonne réponse ! +5 points !";
+
+        }
+
+        else {
+
+            document.getElementById("resultatQCM").innerHTML =
+                "❌ Mauvaise réponse !";
+
+        }
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
+<a href="joueurs.html">Joueurs</a>
